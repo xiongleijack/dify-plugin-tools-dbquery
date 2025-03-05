@@ -1,5 +1,14 @@
 ## Dify 1.0 Plugin Database Query Tools
 
+### Demonstration
+
+![db_query_en](./images/db_query_en.png)
+
+![db_query_en](./images/db_query_sql_query.png)
+
+![db_query_en](./images/db_query_chatflow.png)
+
+
 ### Tools
 
 #### Database Query Utils  数据库查询工具
