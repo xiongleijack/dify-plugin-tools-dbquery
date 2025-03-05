@@ -16,7 +16,7 @@ meta:
     entrypoint: main
     language: python
     version: "3.12"
-  version: 0.0.1
+  version: 0.0.2
 plugins:
   tools:
     - provider/db_query.yaml
@@ -32,4 +32,4 @@ tags:
   - search
   - utilities
 type: plugin
-version: 0.0.1
+version: 0.0.2
