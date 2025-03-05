@@ -44,6 +44,9 @@ parameters:
     label:
       en_US: Database Host
       zh_Hans: 数据库地址
+    human_description:
+      en_US: database hostname or IP address.
+      zh_Hans: 数据库的主机名或IP地址。
     form: form
   - name: db_port
     type: number
@@ -51,6 +54,9 @@ parameters:
     label:
       en_US: Port
       zh_Hans: 端口
+    human_description:
+      en_US: database port.
+      zh_Hans: 数据库的端口。
     form: form
   - name: db_username
     type: string
@@ -58,6 +64,9 @@ parameters:
     label:
       en_US: Username
       zh_Hans: 用户名
+    human_description:
+      en_US: database username.
+      zh_Hans: 数据库的用户名。
     form: form
   - name: db_password
     type: secret-input
@@ -65,6 +74,9 @@ parameters:
     label:
       en_US: Password
       zh_Hans: 密码
+    human_description:
+      en_US: database password.
+      zh_Hans: 数据库的密码。
     form: form
   - name: db_name
     type: string
@@ -72,6 +84,9 @@ parameters:
     label:
       en_US: Database name
       zh_Hans: 库名
+    human_description:
+      en_US: database name.
+      zh_Hans: 数据库的名称。
     form: form
   - name: db_properties
     type: string

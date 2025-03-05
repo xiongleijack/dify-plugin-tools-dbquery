@@ -47,36 +47,54 @@ credentials_for_provider:
     label:
       en_US: Database Host
       zh_Hans: 数据库地址
+    human_description:
+      en_US: database hostname or IP address.
+      zh_Hans: 数据库的主机名或IP地址。
   db_port:
     type: text-input
     required: false
     label:
       en_US: Port
       zh_Hans: 端口
+    human_description:
+      en_US: database port.
+      zh_Hans: 数据库的端口。
   db_username:
     type: text-input
     required: true
     label:
       en_US: Username
       zh_Hans: 用户名
+    human_description:
+      en_US: database username.
+      zh_Hans: 数据库的用户名。
   db_password:
     type: secret-input
     required: true
     label:
       en_US: Password
       zh_Hans: 密码
+    human_description:
+      en_US: database password.
+      zh_Hans: 数据库的密码。
   db_name:
     type: text-input
     required: false
     label:
       en_US: Database name
       zh_Hans: 库名
+    human_description:
+      en_US: database name.
+      zh_Hans: 数据库的名称。
   db_properties:
     type: text-input
     required: false
     label:
       en_US: Database properties
       zh_Hans: 数据库属性
+    human_description:
+      en_US: 'Database properties, for example: alt_host=host1&alt_host=host2&ssl_cipher=/path/to/crt'
+      zh_Hans: 数据库属性，例如：alt_host=host1&alt_host=host2&ssl_cipher=/path/to/crt
     help:
       en_US: 'Database properties, for example: alt_host=host1&alt_host=host2&ssl_cipher=/path/to/crt'
       zh_Hans: 数据库属性，例如：alt_host=host1&alt_host=host2&ssl_cipher=/path/to/crt
