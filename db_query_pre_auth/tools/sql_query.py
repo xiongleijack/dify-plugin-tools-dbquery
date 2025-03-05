@@ -16,24 +16,23 @@ class SqlQueryTool(Tool):
         """
         invoke tools
         """
-        print(tool_parameters)
-        db_type = tool_parameters.get("db_type", "")
+        db_type = self.runtime.credentials["db_type"]
         if not db_type:
             raise ValueError("Please select the database type")
-        db_host = tool_parameters.get("db_host", "")
+        db_host = self.runtime.credentials["db_host"]
         if not db_host:
             raise ValueError("Please fill in the database host")
-        db_port = tool_parameters.get("db_port", "")
-        if db_port is not None:
-            db_port = str(db_port)
-        db_username = tool_parameters.get("db_username", "")
+        db_port = self.runtime.credentials["db_port"]
+        if DbUtil.is_not_empty(db_port) and not db_port.isdigit():
+            raise ValueError("Database port can be empty or fill with integer value")
+        db_username = self.runtime.credentials["db_username"]
         if not db_username:
             raise ValueError("Please fill in the database username")
-        db_password = tool_parameters.get("db_password", "")
+        db_password = self.runtime.credentials["db_password"]
         if not db_password:
             raise ValueError("Please fill in the database password")
-        db_name = tool_parameters.get("db_name", "")
-        db_properties = tool_parameters.get("db_properties", "")
+        db_name = self.runtime.credentials["db_name"]
+        db_properties = self.runtime.credentials["db_properties"]
 
         query_sql = tool_parameters.get("query_sql", "")
         if not query_sql:
