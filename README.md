@@ -30,6 +30,11 @@ Others can install the plugin using the GitHub repository address. Visit the Dif
 ![install_plugin_via_github](./images/install_plugin_via_github.png)
 
 
+### Examples 示例
+
+- [完蛋！我被LLM包围了！（Dify1.0战绩排行版）](./examples/完蛋！我被LLM包围了！（Dify1.0战绩排行版）.yml)
+
+
 ### FAQ
 
 #### How to Handle Errors When Installing Plugins? 安装插件时遇到异常应如何处理？
