@@ -86,9 +86,9 @@ Package Dify plugin [true] offline package (contains dependencies, no need to be
 
 #### Dify Plugin Packaging offline package Dify插件打离线包
 
-> ** Note: Here to * * [db_query](https://github.com/junjiem/dify-plugin-tools-dbquery) plugin on CentOS use [Dify Plugin CLI](https://github.com/langgenius/dify-plugin-daemon/releases) to play offline package, for example.
+> ** Note: Here to * * [db_query](https://github.com/junjiem/dify-plugin-tools-dbquery/tree/main/db_query) plugin on CentOS use [Dify Plugin CLI](https://github.com/langgenius/dify-plugin-daemon/releases) to play offline package, for example.
 
-> **注：**这里以 [db_query](https://github.com/junjiem/dify-plugin-tools-dbquery) 插件在 CentOS 上使用 [Dify Plugin CLI](https://github.com/langgenius/dify-plugin-daemon/releases) 打离线包为例。
+> **注：**这里以 [db_query](https://github.com/junjiem/dify-plugin-tools-dbquery/tree/main/db_query) 插件在 CentOS 上使用 [Dify Plugin CLI](https://github.com/langgenius/dify-plugin-daemon/releases) 打离线包为例。
 
 
 
