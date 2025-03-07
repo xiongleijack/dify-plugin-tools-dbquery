@@ -99,7 +99,7 @@ sed -i '1i\--no-index --find-links=./wheels/' requirements.txt
 cd ..
 # dify-plugin-linux-amd64中对插件大小做了最大限制50M（且被写死了），所以我重新编译了dify-plugin-linux-amd64放大限制到500M
 dify-plugin-linux-amd64 plugin package ./db_query
-mv db_query.difypkg db_query-linux-amd64.difypkg # db_query-linux-amd64.difypkg 就是最后的（真）离线包
+mv db_query.difypkg db_query-offline.difypkg # db_query-offline.difypkg 就是最后的（真）离线包
 ```
 
 
