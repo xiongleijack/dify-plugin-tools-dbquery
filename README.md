@@ -9,6 +9,7 @@
 ![db_query_en](./images/db_query_chatflow.png)
 
 
+
 ### Tools
 
 #### Database Query Utils  数据库查询工具
@@ -16,9 +17,11 @@
 ![db_query](./images/db_query.png)
 
 
+
 #### Database Query Utils (Pre-authorization)  数据库查询工具（预授权）
 
 ![db_query_pre_auth](./images/db_query_pre_auth.png)
+
 
 
 ### Installing Plugins via GitHub  通过 GitHub 安装插件
@@ -30,9 +33,11 @@ Others can install the plugin using the GitHub repository address. Visit the Dif
 ![install_plugin_via_github](./images/install_plugin_via_github.png)
 
 
+
 ### Examples 示例
 
 - [完蛋！我被LLM包围了！（Dify1.0战绩排行版）](./examples/完蛋！我被LLM包围了！（Dify1.0战绩排行版）.yml)
+
 
 
 ### FAQ
@@ -48,6 +53,7 @@ Once this field is added, the Dify platform will allow the installation of all p
 
 **解决办法**：在 .env 配置文件的末尾添加 FORCE_VERIFYING_SIGNATURE=false 字段即可解决该问题。
 添加该字段后，Dify 平台将允许安装所有未在 Dify Marketplace 上架（审核）的插件，可能存在安全隐患。
+
 
 
 ### 打离线包
@@ -69,7 +75,6 @@ mv db_query.difypkg db_query-linux-amd64.difypkg # db_query-linux-amd64.difypkg 
 
 ** Dify Plugin CLI 放开最大限制处，如下图：**
 ![](./images/dify-plugin-daemon-update.png)
-
 
 #### Dify平台放开限制
 
