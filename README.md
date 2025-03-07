@@ -49,3 +49,33 @@ Once this field is added, the Dify platform will allow the installation of all p
 **解决办法**：在 .env 配置文件的末尾添加 FORCE_VERIFYING_SIGNATURE=false 字段即可解决该问题。
 添加该字段后，Dify 平台将允许安装所有未在 Dify Marketplace 上架（审核）的插件，可能存在安全隐患。
 
+
+### 打离线包
+打包Dify插件【真】离线包（包含依赖，不需要再联网）。
+
+#### Dify插件打离线包
+
+> **注：**这里以 [db_query](https://github.com/junjiem/dify-plugin-tools-dbquery) 插件使用 [Dify Plugin CLI](https://github.com/langgenius/dify-plugin-daemon/releases) 打离线包为例。
+
+```shell
+cd ./db_query
+pip download -r requirements.txt -d ./wheels --index-url https://mirrors.aliyun.com/pypi/simple
+sed -i '1i\--no-index --find-links=./wheels/' requirements.txt
+cd ..
+# dify-plugin-linux-amd64中对插件大小做了最大限制50M（且被写死了），所以我重新编译了dify-plugin-linux-amd64放大限制到500M
+dify-plugin-linux-amd64 plugin package ./db_query
+mv db_query.difypkg db_query-linux-amd64.difypkg # db_query-linux-amd64.difypkg 就是最后的（真）离线包
+```
+
+** Dify Plugin CLI 放开最大限制处，如下图：**
+![](./images/dify-plugin-daemon-update.png)
+
+
+#### Dify平台放开限制
+
+1、在 .env 配置文件将 `FORCE_VERIFYING_SIGNATURE` 改为 `false` ，Dify 平台将允许安装所有未在 Dify Marketplace 上架（审核）的插件。
+
+2、在 .env 配置文件将 `PLUGIN_MAX_PACKAGE_SIZE` 增大为 `524288000`，Dify 平台将允许安装 500M 大小以内的插件。
+
+3、在 .env 配置文件将 `NGINX_CLIENT_MAX_BODY_SIZE` 增大为 `500M`，Nginx客户端将允许上传 500M 大小以内的内容。
+

@@ -16,3 +16,5 @@ target/
 .gradle/
 tmp/
 build/
+
+*/wheels
