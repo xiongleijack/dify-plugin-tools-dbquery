@@ -1,5 +1,9 @@
 ## Dify 1.0 Plugin Database Query Tools
 
+
+---
+
+
 ### Demonstration
 
 ![db_query_en](./images/db_query_en.png)
@@ -7,6 +11,9 @@
 ![db_query_en](./images/db_query_sql_query.png)
 
 ![db_query_en](./images/db_query_chatflow.png)
+
+
+---
 
 
 
@@ -23,6 +30,9 @@
 ![db_query_pre_auth](./images/db_query_pre_auth.png)
 
 
+---
+
+
 
 ### Installing Plugins via GitHub  通过 GitHub 安装插件
 
@@ -33,10 +43,16 @@ Others can install the plugin using the GitHub repository address. Visit the Dif
 ![install_plugin_via_github](./images/install_plugin_via_github.png)
 
 
+---
+
+
 
 ### Examples 示例
 
 - [完蛋！我被LLM包围了！（Dify1.0战绩排行版）](./examples/完蛋！我被LLM包围了！（Dify1.0战绩排行版）.yml)
+
+
+---
 
 
 
@@ -55,13 +71,26 @@ Once this field is added, the Dify platform will allow the installation of all p
 添加该字段后，Dify 平台将允许安装所有未在 Dify Marketplace 上架（审核）的插件，可能存在安全隐患。
 
 
+---
 
-### 打离线包
+
+
+### Off-line packing 打离线包
+
+Package Dify plug-in [true] offline package (contains dependencies, no need to be connected to the Internet). 
+
 打包Dify插件【真】离线包（包含依赖，不需要再联网）。
 
-#### Dify插件打离线包
+
+
+
+#### Dify Plugin Off-line packing Dify插件打离线包
+
+> ** Note: Here to * * [db_query](https://github.com/junjiem/dify-plugin-tools-dbquery) plugin use [Dify Plugin CLI](https://github.com/langgenius/dify-plugin-daemon/releases) to play offline package, for example.
 
 > **注：**这里以 [db_query](https://github.com/junjiem/dify-plugin-tools-dbquery) 插件使用 [Dify Plugin CLI](https://github.com/langgenius/dify-plugin-daemon/releases) 打离线包为例。
+
+
 
 ```shell
 cd ./db_query
@@ -73,14 +102,24 @@ dify-plugin-linux-amd64 plugin package ./db_query
 mv db_query.difypkg db_query-linux-amd64.difypkg # db_query-linux-amd64.difypkg 就是最后的（真）离线包
 ```
 
-** Dify Plugin CLI 放开最大限制处，如下图：**
+
+
+**Dify Plugin CLI 放开最大限制处，如下图：**
 ![](./images/dify-plugin-daemon-update.png)
 
-#### Dify平台放开限制
 
-1、在 .env 配置文件将 `FORCE_VERIFYING_SIGNATURE` 改为 `false` ，Dify 平台将允许安装所有未在 Dify Marketplace 上架（审核）的插件。
 
-2、在 .env 配置文件将 `PLUGIN_MAX_PACKAGE_SIZE` 增大为 `524288000`，Dify 平台将允许安装 500M 大小以内的插件。
+#### Update Dify platform env  Dify平台放开限制
 
-3、在 .env 配置文件将 `NGINX_CLIENT_MAX_BODY_SIZE` 增大为 `500M`，Nginx客户端将允许上传 500M 大小以内的内容。
+- your .env configuration file: Change `FORCE_VERIFYING_SIGNATURE` to `false` , the Dify platform will allow the installation of all plugins that are not listed in the Dify Marketplace. 
+
+- your .env configuration file: Change `PLUGIN_MAX_PACKAGE_SIZE` to `524288000` , and the Dify platform will allow the installation of plug-ins within 500M. 
+
+- your .env configuration file: Change `NGINX_CLIENT_MAX_BODY_SIZE` to `500M` , and the Nginx client will allow uploading content up to 500M in size.  
+
+  
+
+- 在 .env 配置文件将 `FORCE_VERIFYING_SIGNATURE` 改为 `false` ，Dify 平台将允许安装所有未在 Dify Marketplace 上架（审核）的插件。
+- 在 .env 配置文件将 `PLUGIN_MAX_PACKAGE_SIZE` 增大为 `524288000`，Dify 平台将允许安装 500M 大小以内的插件。
+- 在 .env 配置文件将 `NGINX_CLIENT_MAX_BODY_SIZE` 增大为 `500M`，Nginx客户端将允许上传 500M 大小以内的内容。
 
