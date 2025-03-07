@@ -75,16 +75,16 @@ Once this field is added, the Dify platform will allow the installation of all p
 
 
 
-### Off-line packing 打离线包
+### Packaging offline package 打离线包
 
-Package Dify plug-in [true] offline package (contains dependencies, no need to be connected to the Internet). 
+Package Dify plugin [true] offline package (contains dependencies, no need to be connected to the Internet). 
 
 打包Dify插件【真】离线包（包含依赖，不需要再联网）。
 
 
 
 
-#### Dify Plugin Off-line packing Dify插件打离线包
+#### Dify Plugin Packaging offline package Dify插件打离线包
 
 > ** Note: Here to * * [db_query](https://github.com/junjiem/dify-plugin-tools-dbquery) plugin use [Dify Plugin CLI](https://github.com/langgenius/dify-plugin-daemon/releases) to play offline package, for example.
 
