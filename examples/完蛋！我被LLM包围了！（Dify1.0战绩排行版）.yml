@@ -892,7 +892,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import re\nimport sympy\nimport unicodedata\n\n\ndef main(status: str,\n\
+        code: "import re\nimport math\nimport unicodedata\n\n\ndef main(status: str,\n\
           \         game_level: int, question_id: int,\n         query: str, text:\
           \ str,\n         reversed_text: str, reciprocal_text: str\n         ) ->\
           \ dict:\n    challenge1 = {\n        'name':\n            '【第一章】 对话之趣',\n\
@@ -939,7 +939,7 @@ workflow:
           \           'title':\n                    '第1题 质数长度',\n                'description':\n\
           \                    '你需要提出一个字数是质数的问题，使回答的长度刚好是它的下一个质数。',\n            \
           \    'validator':\n                    lambda query, response:\n       \
-          \             (sympy.isprime(len(query)) and len(response) == sympy.nextprime(len(query)))\n\
+          \             (is_prime(len(query)) and len(response) == next_prime(len(query)))\n\
           \            },\n            {\n                'title':\n             \
           \       '第2题 越说越大',\n                'description':\n                  \
           \  '请输入一个大于一的正整数作为问题，使回答里包含至少比它大一千的数。',\n                'validator':\n\
@@ -961,10 +961,10 @@ workflow:
           \ ['1', '4', '5'])\n            },\n            {\n                'title':\n\
           \                    '第5题 开平方数',\n                'description':\n     \
           \               '请输入一个大于一的平方数作为问题，使回答里包含它的平方根对应的数。',\n                'validator':\n\
-          \                    lambda query, response: ((\n                      \
-          \      query.isdigit() and int(query) > 1 and sympy.sqrt(int(query)).is_integer\n\
-          \                            and\n                            str(int(sympy.sqrt(int(query))))\
-          \ in response))\n            },\n            {\n                'title':\n\
+          \                    lambda query, response: (query.isdigit() and\n    \
+          \                                         1 < int(query) == math.isqrt(int(query))\
+          \ ** 2 and\n                                             str(int(math.sqrt(int(query))))\
+          \ in response)\n            },\n            {\n                'title':\n\
           \                    '第6题 得寸进狗',\n                'description':\n     \
           \               '请提一个不包含“狗”这个字的10个字以内的问题，使回答中“狗”这个字出现的次数至少是问题字数的2倍。',\n\
           \                'validator':\n                    lambda query, response:\
@@ -1092,17 +1092,23 @@ workflow:
           \ validate_palindrome_invariance(query, response, new_response):\n    #\
           \ 检查原始输入不是回文\n    if query == query[::-1]:\n        return False\n    #\
           \ 比较两个回答是否一致\n    return response.strip() == new_response.strip()\n\n\n\
-          def level2_validate_9(query, response):\n    query_yes = len(query) <= 10\n\
-          \    output_yes = len(response) >= 9 and response.isdigit() and sympy.isprime(\n\
-          \        int(response))\n    return query_yes and output_yes\n\n\ndef validate_palindrome_inverse(query,\
-          \ response, new_response):\n    # 检查原始输入不是回文\n    if query == query[::-1]:\n\
-          \        return False\n    # 检查原始回答不是回文\n    if response == response[::-1]:\n\
-          \        return False\n    # 比较正着问和倒着问的回答是否是逆序关系\n    return response ==\
-          \ new_response[::-1]\n\n\ndef validate_reciprocal_question(query, response,\
-          \ new_response):\n    # 确保回答B不等于原始问题A\n    if response == query:\n     \
-          \   return False\n    # 检查新的回答是否与原始问题A相等\n    return new_response.strip()\
-          \ == query.strip()\n\n\ndef check_word_in_sentence(words, sentence):\n \
-          \   return [word in sentence for word in words]\n"
+          def is_prime(n):\n    \"\"\"检查一个数是否为质数\"\"\"\n    if n < 2:\n        return\
+          \ False\n    for i in range(2, int(math.sqrt(n)) + 1):\n        if n % i\
+          \ == 0:\n            return False\n    return True\n\n\ndef next_prime(n):\n\
+          \    \"\"\"找到大于n的下一个质数\"\"\"\n    current = n + 1\n    while True:\n   \
+          \     if is_prime(current):\n            return current\n        current\
+          \ += 1\n\n\ndef level2_validate_9(query, response):\n    query_yes = len(query)\
+          \ <= 10\n    output_yes = len(response) >= 9 and response.isdigit() and\
+          \ is_prime(\n        int(response))\n    return query_yes and output_yes\n\
+          \n\ndef validate_palindrome_inverse(query, response, new_response):\n  \
+          \  # 检查原始输入不是回文\n    if query == query[::-1]:\n        return False\n  \
+          \  # 检查原始回答不是回文\n    if response == response[::-1]:\n        return False\n\
+          \    # 比较正着问和倒着问的回答是否是逆序关系\n    return response == new_response[::-1]\n\n\
+          \ndef validate_reciprocal_question(query, response, new_response):\n   \
+          \ # 确保回答B不等于原始问题A\n    if response == query:\n        return False\n   \
+          \ # 检查新的回答是否与原始问题A相等\n    return new_response.strip() == query.strip()\n\
+          \n\ndef check_word_in_sentence(words, sentence):\n    return [word in sentence\
+          \ for word in words]\n"
         code_language: python3
         desc: ''
         outputs:
@@ -1695,31 +1701,36 @@ workflow:
     - data:
         author: Junjie.M
         desc: ''
-        height: 265
-        selected: true
+        height: 290
+        selected: false
         showAuthor: true
-        text: '{"root":{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"【完蛋！我被LLM包围了！（战绩排行版）】","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"借鉴了：","type":"text","version":1},{"type":"linebreak","version":1},{"detail":0,"format":0,"mode":"normal","style":"","text":"https://github.com/modelscope/modelscope/tree/master/examples/apps/llm_riddles","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"","text":"注意事项：","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"Dify版本必须>=1.0.0","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"需要在sandbox中添加依赖包并重启sandbox：","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"1、vi
-          dify/docker/volumes/sandbox/dependencies/python-requirements.txt","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"添加sympy~=1.13.3","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"2、docker
-          stop docker-sandbox-1","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"3、docker
-          compose up -d sandbox","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"需要安装插件：数据库查询工具（预授权）","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"1、.env
-          修改 FORCE_VERIFYING_SIGNATURE=false","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"2、插件地址：https://github.com/junjiem/dify-plugin-tools-dbquery","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"3、授权Dify自身的数据库主机、用户名、密码、库名","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":1,"mode":"normal","style":"font-size:
+          14px;","text":"【完蛋！我被LLM包围了！（战绩排行版）】","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"font-size:
+          14px;","text":"借鉴了：","type":"text","version":1},{"type":"linebreak","version":1},{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          14px;","text":"https://github.com/modelscope/modelscope/tree/master/examples/apps/llm_riddles","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":1,"mode":"normal","style":"font-size:
+          14px;","text":"注意事项：","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":1,"textStyle":""},{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          14px;","text":"Dify版本必须>=1.0.0","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          14px;","text":"需要安装插件：数据库查询工具（预授权）","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"listitem","version":1,"value":1}],"direction":"ltr","format":"","indent":0,"type":"list","version":1,"listType":"bullet","start":1,"tag":"ul"},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          14px;","text":"1、.env 修改 FORCE_VERIFYING_SIGNATURE=false","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          14px;","text":"2、插件地址：https://github.com/junjiem/dify-plugin-tools-dbquery","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[{"detail":0,"format":0,"mode":"normal","style":"font-size:
+          14px;","text":"3、授权Dify自身的数据库主机、用户名、密码、库名","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""},{"children":[],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0,"textStyle":""}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
         theme: blue
         title: ''
         type: ''
-        width: 518
-      height: 265
+        width: 650
+      height: 290
       id: '1735262381674'
       position:
         x: 30
-        y: -2.466321643191989
+        y: -3.1806073574777045
       positionAbsolute:
         x: 30
-        y: -2.466321643191989
+        y: -3.1806073574777045
       selected: true
       sourcePosition: right
       targetPosition: left
       type: custom-note
-      width: 518
+      width: 650
     - data:
         answer: '**挑战结果：** <span style="color: orange;">恭喜章节挑战成功！进入下一章。</span>🎉🎉
 
@@ -1757,10 +1768,10 @@ workflow:
       id: '1735447955439'
       position:
         x: 2158
-        y: 1327.7563563381482
+        y: 1329
       positionAbsolute:
         x: 2158
-        y: 1327.7563563381482
+        y: 1329
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -1854,11 +1865,11 @@ workflow:
       height: 54
       id: '1736306700014'
       position:
-        x: 747.8438359862741
-        y: 558.6310559146572
+        x: 942
+        y: 533.6428571428571
       positionAbsolute:
-        x: 747.8438359862741
-        y: 558.6310559146572
+        x: 942
+        y: 533.6428571428571
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -2154,6 +2165,6 @@ workflow:
       type: custom
       width: 244
     viewport:
-      x: 220.12882616676018
-      y: 80.43147977029471
-      zoom: 1.4000000000000008
+      x: -756
+      y: -46.99999999999997
+      zoom: 0.7
