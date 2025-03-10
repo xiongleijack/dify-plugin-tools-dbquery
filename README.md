@@ -111,6 +111,7 @@ dify-plugin-linux-amd64 plugin package ./db_query
 mv db_query.difypkg db_query-offline.difypkg # db_query-offline.difypkg 就是最后的（真）离线包
 ```
 
+!> **提示：** 在Windows或Mac上也可以执行`pip download --platform manylinux2014_x86_64 --only-binary=:all: -r requirements.txt -d ./wheels --index-url https://mirrors.aliyun.com/pypi/simple`
 
 
 **Dify Plugin CLI 放开最大限制处，如下图：**
