@@ -43,14 +43,6 @@ Others can install the plugin using the GitHub repository address. Visit the Dif
 ![install_plugin_via_github](./images/install_plugin_via_github.png)
 
 
----
-
-
-
-### Examples 示例
-
-- [完蛋！我被LLM包围了！（Dify1.0战绩排行版）](./examples/完蛋！我被LLM包围了！（Dify1.0战绩排行版）.yml)
-
 
 ---
 
@@ -69,6 +61,23 @@ Once this field is added, the Dify platform will allow the installation of all p
 
 **解决办法**：在 .env 配置文件的末尾添加 FORCE_VERIFYING_SIGNATURE=false 字段即可解决该问题。
 添加该字段后，Dify 平台将允许安装所有未在 Dify Marketplace 上架（审核）的插件，可能存在安全隐患。
+
+
+
+---
+
+
+
+### Examples 示例
+
+- [完蛋！我被LLM包围了！（Dify1.0战绩排行版）](./examples/完蛋！我被LLM包围了！（Dify1.0战绩排行版）.yml)
+
+![](./images/llm_riddles1.png)
+
+![](./images/llm_riddles2.png)
+
+![](./images/llm_riddles3.png)
+
 
 
 ---
@@ -105,7 +114,7 @@ mv db_query.difypkg db_query-offline.difypkg # db_query-offline.difypkg 就是�
 
 
 **Dify Plugin CLI 放开最大限制处，如下图：**
-![](./images/dify-plugin-daemon-update.png)
+![dify_plugin_daemon_update](./images/dify_plugin_daemon_update.png)
 
 
 
@@ -117,7 +126,7 @@ mv db_query.difypkg db_query-offline.difypkg # db_query-offline.difypkg 就是�
 
 - your .env configuration file: Change `NGINX_CLIENT_MAX_BODY_SIZE` to `500M` , and the Nginx client will allow uploading content up to 500M in size.  
 
-  
+
 
 - 在 .env 配置文件将 `FORCE_VERIFYING_SIGNATURE` 改为 `false` ，Dify 平台将允许安装所有未在 Dify Marketplace 上架（审核）的插件。
 - 在 .env 配置文件将 `PLUGIN_MAX_PACKAGE_SIZE` 增大为 `524288000`，Dify 平台将允许安装 500M 大小以内的插件。
