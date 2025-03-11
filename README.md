@@ -36,11 +36,25 @@
 
 ### Installing Plugins via GitHub  通过 GitHub 安装插件
 
-Others can install the plugin using the GitHub repository address. Visit the Dify platform's plugin management page, choose to install via GitHub, enter the repository address, select version number and package file to complete installation.
+Can install the plugin using the GitHub repository address. Visit the Dify platform's plugin management page, choose to install via GitHub, enter the repository address, select version number and package file to complete installation.
 
-其他人可以通过 GitHub 仓库地址安装该插件。访问 Dify 平台的插件管理页，选择通过 GitHub 安装插件，输入仓库地址后，选择版本号和包文件完成安装。
+可以通过 GitHub 仓库地址安装该插件。访问 Dify 平台的插件管理页，选择通过 GitHub 安装插件，输入仓库地址后，选择版本号和包文件完成安装。
 
 ![install_plugin_via_github](./images/install_plugin_via_github.png)
+
+
+
+---
+
+
+### Installing Plugins via Local 通过本地安装插件
+
+If the plugin cannot be installed via GitHub due to network issues, you can [manually download plugin package](https://github.com/junjiem/dify-plugin-tools-dbquery/releases/latest) (`with 'offline' is [true] offline package, without 'offline' installation will with pip connect network to pull the dependency package`).
+Visit the Dify platform's plugin management page, choose Local Package File to complete installation.
+
+如果由于网络问题导致无法通过 GitHub 安装插件，可以 [手动下载插件包](https://github.com/junjiem/dify-plugin-tools-dbquery/releases/latest) （`带'offline'的是【真】离线包，不带'offline'的安装时会pip联网拉取依赖包`），访问 Dify 平台的插件管理页，选择通过本地插件完成安装。
+
+![install_plugin_via_local](./images/install_plugin_via_local.png)
 
 
 
