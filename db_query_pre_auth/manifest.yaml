@@ -33,3 +33,5 @@ tags:
   - utilities
 type: plugin
 version: 0.0.2
+privacy: PRIVACY.md
+verified: false
