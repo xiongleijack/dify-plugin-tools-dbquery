@@ -119,7 +119,7 @@ Package Dify plugin [true] offline package (contains dependencies, no need to be
 cd ./db_query
 pip download -r requirements.txt -d ./wheels --index-url https://mirrors.aliyun.com/pypi/simple
 sed -i '1i\--no-index --find-links=./wheels/' requirements.txt
-sed -i '/^wheels\/$/d' .difyignore # 或直接删除.difyignore文件
+sed -i '/^wheels\//d' .difyignore # 或直接删除.difyignore文件
 cd ..
 # dify-plugin-linux-amd64中对插件大小做了最大限制50M（且被写死了），所以我重新编译了dify-plugin-linux-amd64放大限制到500M
 dify-plugin-linux-amd64 plugin package ./db_query -o db_query-offline.difypkg # db_query-offline.difypkg 就是最后的（真）离线包
