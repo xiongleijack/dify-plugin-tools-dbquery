@@ -109,14 +109,6 @@ Package Dify plugin [true] offline package (contains dependencies, no need to be
 
 #### Dify Plugin Packaging offline package Dify插件打离线包
 
-
-Scripting tool for downloading Dify plugin package from Dify Marketplace and Github and repackaging [true] offline package.
-
-从Dify市场和Github下载Dify插件包和重新打包【真】离线包的脚本工具。
-
-https://github.com/junjiem/dify-plugin-repackaging
-
-
 > ** Note: Here to * * [db_query](https://github.com/junjiem/dify-plugin-tools-dbquery/tree/main/db_query) plugin on CentOS use [Dify Plugin CLI](https://github.com/langgenius/dify-plugin-daemon/releases) to play offline package, for example.
 
 > **注：**这里以 [db_query](https://github.com/junjiem/dify-plugin-tools-dbquery/tree/main/db_query) 插件在 CentOS 上使用 [Dify Plugin CLI](https://github.com/langgenius/dify-plugin-daemon/releases) 打离线包为例。
@@ -154,4 +146,14 @@ dify-plugin-linux-amd64 plugin package ./db_query -o db_query-offline.difypkg # 
 - 在 .env 配置文件将 `FORCE_VERIFYING_SIGNATURE` 改为 `false` ，Dify 平台将允许安装所有未在 Dify Marketplace 上架（审核）的插件。
 - 在 .env 配置文件将 `PLUGIN_MAX_PACKAGE_SIZE` 增大为 `524288000`，Dify 平台将允许安装 500M 大小以内的插件。
 - 在 .env 配置文件将 `NGINX_CLIENT_MAX_BODY_SIZE` 增大为 `500M`，Nginx客户端将允许上传 500M 大小以内的内容。
+
+
+
+#### Dify Plugin Downloading and Repackaging Scripting Tool  Dify插件下载并重打包脚本工具
+
+Scripting tool for downloading Dify plugin package from Dify Marketplace and Github and repackaging [true] offline package.
+
+从Dify市场和Github下载Dify插件包并重新打【真】离线包的脚本工具。
+
+Github Repo: https://github.com/junjiem/dify-plugin-repackaging
 
