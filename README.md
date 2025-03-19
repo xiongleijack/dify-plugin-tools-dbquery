@@ -6,11 +6,11 @@
 
 ### Demonstration
 
-![db_query_en](./images/db_query_en.png)
+![db_query](db_query/_assets/db_query.png)
 
-![db_query_en](./images/db_query_sql_query.png)
+![db_query_sql_query](db_query/_assets/db_query_sql_query.png)
 
-![db_query_en](./images/db_query_chatflow.png)
+![db_query_chatflow](db_query/_assets/db_query_chatflow.png)
 
 
 ---
