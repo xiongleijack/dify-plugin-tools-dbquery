@@ -86,6 +86,9 @@ Once this field is added, the Dify platform will allow the installation of all p
 
 - [完蛋！我被LLM包围了！（Dify1.0战绩排行版）](./examples/完蛋！我被LLM包围了！（Dify1.0战绩排行版）.yml)
 
+- [完蛋！我被LLM包围了！（Dify1.0战绩排行+留言版）](./examples/完蛋！我被LLM包围了！（Dify1.0战绩排行+留言版）.yml)
+
+
 ![](./images/llm_riddles1.png)
 
 ![](./images/llm_riddles2.png)
