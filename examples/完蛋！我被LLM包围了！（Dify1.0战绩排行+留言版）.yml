@@ -11,9 +11,12 @@ app:
   use_icon_as_answer_icon: true
 dependencies:
 - current_identifier: null
-  type: package
+  type: github
   value:
-    plugin_unique_identifier: junjiem/db_query_pre_auth:0.0.2@ba9cef69087cbcc1c38cdd3247e6ca3d45a429a2026dfa643a4dd30934750689
+    github_plugin_unique_identifier: junjiem/db_query_pre_auth:0.0.2@ba9cef69087cbcc1c38cdd3247e6ca3d45a429a2026dfa643a4dd30934750689
+    package: db_query_pre_auth.difypkg
+    repo: junjiem/dify-plugin-tools-dbquery
+    version: v0.0.2
 - current_identifier: null
   type: marketplace
   value:

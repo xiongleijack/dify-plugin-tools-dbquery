@@ -20,7 +20,7 @@ dependencies:
 - current_identifier: null
   type: marketplace
   value:
-    marketplace_plugin_unique_identifier: langgenius/tongyi:0.0.6@0d8e025c917b243da6f0a5caa2f1349931500ebf52fc45595a87dba06b1f8fb3
+    marketplace_plugin_unique_identifier: langgenius/tongyi:0.0.13@5a4c38f32498ab259b96833608a6a90c0b29671ecf14af272fbc7cde97e813d1
 kind: app
 version: 0.1.5
 workflow:
