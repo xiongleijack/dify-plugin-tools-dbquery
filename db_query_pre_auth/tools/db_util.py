@@ -25,12 +25,13 @@ class DbUtil:
         self.engine = create_engine(self.get_url(), pool_size=100, pool_recycle=36)
 
     def get_driver_name(self):
-        driver_name = self.db_type
-        if self.db_type == 'mysql':
+        db_type = self.db_type.lower()
+        driver_name = db_type
+        if db_type == 'mysql':
             driver_name = 'mysql+pymysql'
-        elif self.db_type == 'oracle':
+        elif db_type == 'oracle':
             driver_name = 'oracle+oracledb'
-        elif self.db_type == 'postgresql':
+        elif db_type == 'postgresql':
             driver_name = 'postgresql+psycopg2'
         return driver_name
 

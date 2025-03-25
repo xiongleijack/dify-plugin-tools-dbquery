@@ -17,6 +17,7 @@ class SqlQueryTool(Tool):
         invoke tools
         """
         db_type = tool_parameters.get("db_type", "")
+        print(db_type)
         if not db_type:
             raise ValueError("Please select the database type")
         db_host = tool_parameters.get("db_host", "")

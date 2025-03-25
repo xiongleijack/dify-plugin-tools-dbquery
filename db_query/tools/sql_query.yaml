@@ -36,7 +36,7 @@ parameters:
     human_description:
       en_US: Used for selecting the database type, mysql, oracle or postgresql.
       zh_Hans: 用于选择数据库类型，mysql、oracle或postgresql。
-    form: form
+    form: llm
   - name: db_host
     type: string
     required: true
@@ -47,7 +47,7 @@ parameters:
     human_description:
       en_US: database hostname or IP address.
       zh_Hans: 数据库的主机名或IP地址。
-    form: form
+    form: llm
   - name: db_port
     type: number
     required: false
@@ -57,7 +57,7 @@ parameters:
     human_description:
       en_US: database port.
       zh_Hans: 数据库的端口。
-    form: form
+    form: llm
   - name: db_username
     type: string
     required: true
@@ -67,7 +67,7 @@ parameters:
     human_description:
       en_US: database username.
       zh_Hans: 数据库的用户名。
-    form: form
+    form: llm
   - name: db_password
     type: secret-input
     required: true
@@ -77,7 +77,7 @@ parameters:
     human_description:
       en_US: database password.
       zh_Hans: 数据库的密码。
-    form: form
+    form: llm
   - name: db_name
     type: string
     required: false
@@ -87,7 +87,7 @@ parameters:
     human_description:
       en_US: database name.
       zh_Hans: 数据库的名称。
-    form: form
+    form: llm
   - name: db_properties
     type: string
     required: false
@@ -97,7 +97,7 @@ parameters:
     human_description:
       en_US: 'Database properties, for example: alt_host=host1&alt_host=host2&ssl_cipher=/path/to/crt'
       zh_Hans: 数据库属性，例如：alt_host=host1&alt_host=host2&ssl_cipher=/path/to/crt
-    form: form
+    form: llm
   - name: query_sql
     type: string
     required: true
