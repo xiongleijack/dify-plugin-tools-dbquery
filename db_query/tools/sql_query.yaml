@@ -45,8 +45,8 @@ parameters:
       en_US: Database Host
       zh_Hans: 数据库地址
     human_description:
-      en_US: database hostname or IP address.
-      zh_Hans: 数据库的主机名或IP地址。
+      en_US: database hostname or IP address (Original string, not URL-encoded string).
+      zh_Hans: 数据库的主机名或IP地址（原始字符串，非URL编码字符串）。
     form: llm
   - name: db_port
     type: number
@@ -65,8 +65,8 @@ parameters:
       en_US: Username
       zh_Hans: 用户名
     human_description:
-      en_US: database username.
-      zh_Hans: 数据库的用户名。
+      en_US: database username (Original string, not URL-encoded string).
+      zh_Hans: 数据库的用户名（原始字符串，非URL编码字符串）。
     form: llm
   - name: db_password
     type: secret-input
@@ -75,8 +75,8 @@ parameters:
       en_US: Password
       zh_Hans: 密码
     human_description:
-      en_US: database password.
-      zh_Hans: 数据库的密码。
+      en_US: database password (Original string, not URL-encoded string).
+      zh_Hans: 数据库的密码（原始字符串，非URL编码字符串）。
     form: llm
   - name: db_name
     type: string
@@ -85,8 +85,8 @@ parameters:
       en_US: Database name
       zh_Hans: 库名
     human_description:
-      en_US: database name.
-      zh_Hans: 数据库的名称。
+      en_US: database name (Original string, not URL-encoded string).
+      zh_Hans: 数据库的名称（原始字符串，非URL编码字符串）。
     form: llm
   - name: db_properties
     type: string
@@ -95,8 +95,8 @@ parameters:
       en_US: Database properties
       zh_Hans: 数据库属性
     human_description:
-      en_US: 'Database properties, for example: alt_host=host1&alt_host=host2&ssl_cipher=/path/to/crt'
-      zh_Hans: 数据库属性，例如：alt_host=host1&alt_host=host2&ssl_cipher=/path/to/crt
+      en_US: 'Database properties, for example: alt_host=host1&alt_host=host2&ssl_cipher=%2Fpath%2Fto%2Fcrt'
+      zh_Hans: '数据库属性，例如：alt_host=host1&alt_host=host2&ssl_cipher=%2Fpath%2Fto%2Fcrt'
     form: llm
   - name: query_sql
     type: string
