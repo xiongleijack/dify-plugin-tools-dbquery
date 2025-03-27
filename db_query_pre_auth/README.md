@@ -1,8 +1,7 @@
 ## Dify 1.0 Plugin Database Query Tools (Pre-authorization)
 
 
-**Author:** [Junjie.M](https://github.com/junjiem)  
-**Version:** 0.0.4  
+**Author:** [Junjie.M](https://github.com/junjiem)   
 **Type:** tool  
 **Github Repo:** [https://github.com/junjiem/dify-plugin-tools-dbquery](https://github.com/junjiem/dify-plugin-tools-dbquery)  
 **Github Issues:** [issues](https://github.com/junjiem/dify-plugin-tools-dbquery/issues)
