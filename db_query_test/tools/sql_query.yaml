@@ -1,0 +1,21 @@
+identity:
+  name: sql_query_aliyun_mysql
+  author: xionglei
+  label:
+    en_US: SQL Query
+    zh_Hans: 阿里云mysql测试
+description:
+  human:
+    en_US: A tool for Database SQL query.
+    zh_Hans: 阿里云mysql测试
+  llm: A tool for executing SQL query. Input should be a search query.
+parameters:
+  - name: database
+    type: select
+    required: true
+    label:
+      en_US: Select Database
+      zh_Hans: 选择数据库
+extra:
+  python:
+    source: tools/sql_query.py

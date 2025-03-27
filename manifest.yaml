@@ -1,0 +1,13 @@
+tools:
+  - name: sql_query
+    description: "SQL查询工具"
+    parameters:
+      - name: database
+        type: select
+        required: true
+        label: "选择数据库"
+        options: dynamic  # 这表示选项是动态生成的
+      - name: sql_query
+        type: string
+        required: true
+        label: "SQL查询语句" 
